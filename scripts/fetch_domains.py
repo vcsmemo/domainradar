@@ -3,6 +3,7 @@ import re
 import urllib.request
 import urllib.error
 import random
+import os
 from datetime import datetime
 
 # NicheDomainRadar — Strict Defensive Domain Verification Engine
@@ -50,12 +51,83 @@ def detect_niche(domain_name):
                 return niche
     return "SaaS"
 
+def send_resend_email_alert(domains_data):
+    """Sends Daily Pro Digest to subscribers via Resend API"""
+    resend_api_key = os.environ.get('RESEND_API_KEY')
+    subscriber_emails = os.environ.get('SUBSCRIBER_EMAILS', '')
+
+    if not resend_api_key:
+        print("ℹ️ RESEND_API_KEY is not set. Skipping Resend daily email alert.")
+        return
+
+    emails_list = [e.strip() for e in subscriber_emails.split(',') if e.strip()]
+    if not emails_list:
+        print("ℹ️ SUBSCRIBER_EMAILS is empty. Skipping Resend daily email alert.")
+        return
+
+    html_items = ""
+    for d in domains_data:
+        html_items += f"""
+        <tr style="border-bottom: 1px solid #1c291c;">
+          <td style="padding: 12px; font-weight: bold; color: #10b981;">{d['name']}</td>
+          <td style="padding: 12px; color: #ffffff;">DR {d['drScore']}</td>
+          <td style="padding: 12px; color: #cbd5e1;">{d['dropStatus']}</td>
+          <td style="padding: 12px; color: #cbd5e1;">{d['backlinksCount']} links ({d['referringDomains']} ref)</td>
+        </tr>
+        """
+
+    html_content = f"""
+    <div style="background-color: #080b08; color: #e2e8f0; font-family: monospace, sans-serif; padding: 24px; border-radius: 8px;">
+      <h2 style="color: #ffffff; margin-bottom: 8px;">⚡ NicheDomainRadar — Daily Pro Digest Alert</h2>
+      <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">Here is your daily curated digest of clean high-DR expired domains ready for backorder & registration.</p>
+      
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;">
+        <thead>
+          <tr style="background-color: #121a12; color: #10b981;">
+            <th style="padding: 10px;">Domain Name</th>
+            <th style="padding: 10px;">DR Rating</th>
+            <th style="padding: 10px;">ICANN Status</th>
+            <th style="padding: 10px;">Backlinks</th>
+          </tr>
+        </thead>
+        <tbody>
+          {html_items}
+        </tbody>
+      </table>
+
+      <div style="margin-top: 24px; padding-top: 16px; border-t: 1px solid #1c291c; font-size: 12px; color: #64748b;">
+        View full radar scoreboards at <a href="https://nichedomainradar.pages.dev" style="color: #10b981;">https://nichedomainradar.pages.dev</a>
+      </div>
+    </div>
+    """
+
+    payload = json.dumps({
+        "from": "NicheDomainRadar <onboarding@resend.dev>",
+        "to": emails_list,
+        "subject": f"⚡ Daily Pro Alert: {len(domains_data)} High DR Clean Expired Domains Dropping Today",
+        "html": html_content
+    }).encode('utf-8')
+
+    req = urllib.request.Request(
+        "https://api.resend.com/emails",
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {resend_api_key}",
+            "Content-Type": "application/json"
+        },
+        method="POST"
+    )
+
+    try:
+        with urllib.request.urlopen(req) as resp:
+            res = json.loads(resp.read().decode('utf-8'))
+            print(f"📧 [Resend Alert] Successfully sent Daily Email Digest to {len(emails_list)} subscribers. Email ID: {res.get('id')}")
+    except Exception as e:
+        print(f"⚠️ [Resend Alert Error] Failed to send email via Resend API: {e}")
+
 def fetch_strict_verified_domains():
     today_str = datetime.now().strftime("%b %d, %Y")
     
-    # 严格经过可用性确认的真实验证数据集：
-    # - saasmetric.co 确定可用 (Available)
-    # - 其它已有持有者的绝不误标 Available，严谨标记为 Pending Delete 或 Auction
     master_domains = [
         {"name": "saasmetric.co", "status": "Available", "age": 6, "dr": 35, "backlinks": 1850, "ref": 72},
         {"name": "promptgenie.app", "status": "Pending Delete", "age": 4, "dr": 36, "backlinks": 1250, "ref": 55},
@@ -130,3 +202,4 @@ export const DOMAINS: ExpiredDomain[] = {json.dumps(domains_data, indent=2)};
 if __name__ == "__main__":
     domains = fetch_strict_verified_domains()
     update_typescript_file(domains)
+    send_resend_email_alert(domains)

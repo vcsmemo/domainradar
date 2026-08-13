@@ -47,9 +47,9 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 1250,
     "referringDomains": 55,
     "featuredBacklinks": [
-      "Bloomberg",
-      "Forbes",
-      "ProductHunt"
+      "ProductHunt",
+      "TechCrunch",
+      "GitHub"
     ],
     "dropStatus": "Pending Delete",
     "checkUrl": "https://porkbun.com/checkout/search?q=promptgenie.app",
@@ -67,9 +67,9 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 3200,
     "referringDomains": 115,
     "featuredBacklinks": [
-      "Bloomberg",
-      "Forbes",
-      "ProductHunt"
+      "TechCrunch",
+      "ProductHunt",
+      "X/Twitter"
     ],
     "dropStatus": "Pending Delete",
     "checkUrl": "https://porkbun.com/checkout/search?q=agentboard.ai",
@@ -87,9 +87,9 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 2300,
     "referringDomains": 88,
     "featuredBacklinks": [
-      "Bloomberg",
-      "Forbes",
-      "ProductHunt"
+      "HackerNews",
+      "Vercel",
+      "GitHub"
     ],
     "dropStatus": "Pending Delete",
     "checkUrl": "https://porkbun.com/checkout/search?q=gitopsflow.dev",
@@ -107,9 +107,9 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 2100,
     "referringDomains": 95,
     "featuredBacklinks": [
-      "TechCrunch",
-      "ProductHunt",
-      "X/Twitter"
+      "Bloomberg",
+      "Forbes",
+      "ProductHunt"
     ],
     "dropStatus": "Pending Delete",
     "checkUrl": "https://porkbun.com/checkout/search?q=devmetrics.io",
@@ -147,9 +147,9 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 4100,
     "referringDomains": 140,
     "featuredBacklinks": [
-      "Bloomberg",
-      "Forbes",
-      "ProductHunt"
+      "TechCrunch",
+      "ProductHunt",
+      "X/Twitter"
     ],
     "dropStatus": "Pending Delete",
     "checkUrl": "https://porkbun.com/checkout/search?q=finstack.co",
@@ -167,9 +167,9 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 820,
     "referringDomains": 38,
     "featuredBacklinks": [
-      "Bloomberg",
-      "Forbes",
-      "ProductHunt"
+      "TechCrunch",
+      "ProductHunt",
+      "X/Twitter"
     ],
     "dropStatus": "Pending Delete",
     "checkUrl": "https://porkbun.com/checkout/search?q=fitpulse.app",
@@ -207,9 +207,9 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 950,
     "referringDomains": 42,
     "featuredBacklinks": [
-      "Medium",
-      "Substack",
-      "Forbes"
+      "HackerNews",
+      "Vercel",
+      "GitHub"
     ],
     "dropStatus": "Pending Delete",
     "checkUrl": "https://porkbun.com/checkout/search?q=medpulse.co",

@@ -36,7 +36,10 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- High-Resolution Favicon & Apple Touch Icon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo.jpg" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- Primary Targeted SEO Meta Tags -->
@@ -46,14 +49,16 @@ const jsonLd = {
     <meta name="keywords" content={keywords} />
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- Open Graph / Facebook / Twitter Cards -->
+    <!-- Open Graph / Facebook / Twitter Cards with Logo Image -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://nichedomainradar.pages.dev/logo.jpg" />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://nichedomainradar.pages.dev/logo.jpg" />
 
     <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,12 +70,12 @@ const jsonLd = {
   </head>
   <body class="bg-[#080b08] text-slate-200 antialiased min-h-screen flex flex-col font-mono selection:bg-emerald-500 selection:text-black">
     
-    <!-- Header Navigation -->
+    <!-- Header Navigation with Logo Image -->
     <header class="border-b border-[#182318] bg-[#0c120c]/80 backdrop-blur sticky top-0 z-40">
       <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         
-        <a href="/" class="flex items-center gap-2 font-mono font-bold text-lg text-white tracking-tight">
-          <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+        <a href="/" class="flex items-center gap-2.5 font-mono font-bold text-lg text-white tracking-tight group">
+          <img src="/logo.jpg" alt="NicheDomainRadar Logo" class="w-8 h-8 rounded-full border border-emerald-500/40 group-hover:border-emerald-400 transition-colors shadow-md shadow-emerald-500/10 object-cover" />
           <span>NicheDomain<span class="text-emerald-400">Radar</span></span>
         </a>
 
@@ -85,7 +90,7 @@ const jsonLd = {
         </nav>
 
         <div class="flex items-center gap-3 font-mono">
-          <a href="#pricing" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-3 py-1.5 rounded text-xs transition-all shadow-md shadow-emerald-500/20">
+          <a href="#pricing" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-3.5 py-1.5 rounded text-xs transition-all shadow-md shadow-emerald-500/20">
             Get Pro Access ($19)
           </a>
         </div>
@@ -98,11 +103,12 @@ const jsonLd = {
       <slot />
     </main>
 
-    <!-- Footer with Compliance & Legal Links -->
+    <!-- Footer with Logo & Compliance Links -->
     <footer class="border-t border-[#182318] bg-[#090d09] py-8 text-center text-xs text-slate-500 font-mono">
       <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          © 2026 NicheDomainRadar. Premium Clean Expired Domains & Pending Delete Finder for SEO.
+        <div class="flex items-center gap-2">
+          <img src="/logo.jpg" alt="Logo" class="w-4 h-4 rounded-full border border-emerald-500/30" />
+          <span>© 2026 NicheDomainRadar. Premium Clean Expired Domains & Pending Delete Finder.</span>
         </div>
         <div class="flex items-center gap-4 text-slate-400">
           <a href="/" class="hover:text-emerald-400">Expired Domains</a>

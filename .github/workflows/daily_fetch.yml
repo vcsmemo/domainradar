@@ -24,7 +24,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run Data Pipeline (Fetch & Clean Expired Domains)
+      - name: Run Data Pipeline & Send Resend Pro Alerts
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SUBSCRIBER_EMAILS: ${{ secrets.SUBSCRIBER_EMAILS }}
         run: |
           python scripts/fetch_domains.py
 

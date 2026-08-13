@@ -217,7 +217,7 @@ import { DOMAINS } from '../data/domains';
 
   </section>
 
-  <!-- Pricing Section for Pro Membership ($19/mo) -->
+  <!-- Pricing Section with Real Live Stripe Checkout Links -->
   <section class="max-w-6xl mx-auto px-4 py-12 font-mono" id="pricing">
     <div class="bg-gradient-to-br from-[#101810] to-[#0a0e0a] border border-emerald-500/30 rounded-2xl p-8 sm:p-12">
       <div class="max-w-3xl">
@@ -230,6 +230,7 @@ import { DOMAINS } from '../data/domains';
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+          <!-- Pro Membership Card ($19/mo) -->
           <div class="bg-[#0b0e0b] p-6 rounded-xl border border-emerald-500/40 relative">
             <span class="absolute top-3 right-3 text-[10px] bg-emerald-500 text-slate-950 font-bold px-2 py-0.5 rounded">HIGH VALUE / BEST SELLER</span>
             <h3 class="text-lg font-bold text-white mb-1">Pro Membership</h3>
@@ -240,11 +241,12 @@ import { DOMAINS } from '../data/domains';
               <li class="flex items-center gap-2">✓ License Key instant activation</li>
               <li class="flex items-center gap-2">✓ Pending Delete & Auction alerts</li>
             </ul>
-            <button class="open-checkout w-full text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded text-xs transition-colors shadow-lg shadow-emerald-500/20 cursor-pointer" data-plan="Pro Membership ($19/mo)">
+            <a href="https://buy.stripe.com/28E4gz2DNcL96Ja6A3cs800" target="_blank" class="block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded text-xs transition-all shadow-lg shadow-emerald-500/20 cursor-pointer">
               🚀 Subscribe Pro ($19/mo)
-            </button>
+            </a>
           </div>
 
+          <!-- Agency & API Card ($49/mo) -->
           <div class="bg-[#0b0e0b] p-6 rounded-xl border border-[#1b261b]">
             <h3 class="text-lg font-bold text-white mb-1">Agency & API</h3>
             <div class="text-3xl font-extrabold text-white mb-4">$49 <span class="text-xs text-slate-400 font-normal">/ month</span></div>
@@ -254,9 +256,9 @@ import { DOMAINS } from '../data/domains';
               <li class="flex items-center gap-2">✓ API Access for Automated Registrations</li>
               <li class="flex items-center gap-2">✓ 1-Hour Early Access Priority Feed</li>
             </ul>
-            <button class="open-checkout w-full text-center bg-[#182418] hover:bg-[#223322] text-white font-bold py-2.5 rounded text-xs border border-[#2a3c2a] transition-colors cursor-pointer" data-plan="Agency Plan ($49/mo)">
-              Get Agency Access
-            </button>
+            <a href="https://buy.stripe.com/4gM7sLbajh1p8Ri3nRcs801" target="_blank" class="block w-full text-center bg-[#182418] hover:bg-[#223322] text-white font-bold py-3 rounded text-xs border border-[#2a3c2a] transition-all cursor-pointer">
+              Get Agency Access ($49/mo)
+            </a>
           </div>
         </div>
       </div>
@@ -277,14 +279,14 @@ import { DOMAINS } from '../data/domains';
       <div class="space-y-4 mb-6">
         <div class="bg-[#080b08] p-4 rounded-xl border border-[#1c291c] text-xs">
           <div class="flex justify-between font-bold text-white mb-1">
-            <span>Pro Membership ($19/mo)</span>
+            <span id="selected-plan-title">Pro Membership ($19/mo)</span>
             <span class="text-emerald-400">Auto-Renews</span>
           </div>
           <p class="text-slate-500 text-[11px]">Instant access to all unmasked expired domain radar feeds.</p>
         </div>
 
-        <a href="mailto:subscribe@nichedomainradar.com?subject=Subscribe%20Pro" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded text-center text-xs shadow-lg transition-all">
-          💳 Proceed to Checkout (Stripe / Card)
+        <a id="modal-stripe-link" href="https://buy.stripe.com/28E4gz2DNcL96Ja6A3cs800" target="_blank" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded text-center text-xs shadow-lg transition-all">
+          💳 Proceed to Checkout (Stripe Secure)
         </a>
       </div>
 
@@ -384,6 +386,20 @@ import { DOMAINS } from '../data/domains';
     const heroKeyBtn = document.getElementById('hero-key-btn');
     const activateKeyBtn = document.getElementById('activate-key-btn');
     const licenseKeyInput = document.getElementById('license-key-input') as HTMLInputElement;
+    const modalStripeLink = document.getElementById('modal-stripe-link') as HTMLAnchorElement;
+    const openCheckoutBtns = document.querySelectorAll('.open-checkout');
+
+    openCheckoutBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const plan = btn.getAttribute('data-plan') || '';
+        if (plan.includes('49')) {
+          if (modalStripeLink) modalStripeLink.href = 'https://buy.stripe.com/4gM7sLbajh1p8Ri3nRcs801';
+        } else {
+          if (modalStripeLink) modalStripeLink.href = 'https://buy.stripe.com/28E4gz2DNcL96Ja6A3cs800';
+        }
+        modal?.classList.remove('hidden');
+      });
+    });
 
     function updateMode(unlocked: boolean) {
       if (unlocked) {

@@ -3,64 +3,61 @@ import Layout from '../layouts/Layout.astro';
 import { DOMAINS } from '../data/domains';
 ---
 
-<Layout title="NicheDomainRadar · Daily Curated Clean Expired Domains for Indie Builders">
+<Layout 
+  title="Clean Expired Domains Finder · High DR Expired Domains & Pending Delete List ($19/mo)"
+  description="Find clean high DR expired domains with authoritative backlinks (ProductHunt, TechCrunch, Forbes). Daily curated expired .ai, .com, .io domains and pending delete list for SEO & indie hackers."
+  keywords="expired domains, high dr expired domains, clean expired domains, expired domain finder, pending delete list, expired .ai domains, SEO expired domains"
+>
   
   <!-- Hero Section -->
-  <section class="border-b border-[#1b261b] py-12 px-4 relative overflow-hidden">
+  <section class="border-b border-[#1b261b] py-10 px-4 relative overflow-hidden font-mono">
     <div class="max-w-6xl mx-auto text-left">
       
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#132213] border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#132213] border border-emerald-500/30 text-emerald-400 text-xs mb-4">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-        DAILY RADAR ACTIVE · {DOMAINS.length} CLEAN HIGH-AUTHORITY DOMAINS TODAY
+        DAILY RADAR ACTIVE · {DOMAINS.length} CLEAN HIGH-DR EXPIRED DOMAINS TODAY
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 font-mono">
-        Clean Expired Domains for <span class="text-emerald-400">Indie Builders & SEO</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3">
+        High DR <span class="text-emerald-400">Clean Expired Domains</span> Finder & Pending Delete List
       </h1>
 
-      <p class="text-slate-400 text-sm sm:text-base max-w-2xl font-mono leading-relaxed mb-8">
-        We scan 50,000+ daily dropped domains, filter out spam/penalties, and deliver clean, high-DR domains with top-tier backlinks (TechCrunch, ProductHunt, Medium).
+      <p class="text-slate-400 text-xs sm:text-sm max-w-2xl leading-relaxed mb-6">
+        Curated daily feed of clean expired domains (.ai, .com, .io) with real backlink history. Spam-checked & verified via ICANN RDAP protocol.
       </p>
 
-      <!-- Key Metrics Header Banner -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl font-mono text-xs mb-6">
-        <div class="bg-[#111711] p-3 rounded border border-[#1f2e1f]">
-          <span class="text-slate-500 block text-[10px]">AVG DOMAIN AGE</span>
-          <span class="text-white font-bold text-sm">5.5 Years</span>
-        </div>
-        <div class="bg-[#111711] p-3 rounded border border-[#1f2e1f]">
-          <span class="text-slate-500 block text-[10px]">AVG DR SCORE</span>
-          <span class="text-emerald-400 font-bold text-sm">DR 37+</span>
-        </div>
-        <div class="bg-[#111711] p-3 rounded border border-[#1f2e1f]">
-          <span class="text-slate-500 block text-[10px]">MAX BACKLINKS</span>
-          <span class="text-white font-bold text-sm">5,100 Links</span>
-        </div>
-        <div class="bg-[#111711] p-3 rounded border border-[#1f2e1f]">
-          <span class="text-slate-500 block text-[10px]">SAFETY CHECK</span>
-          <span class="text-emerald-400 font-bold text-sm">🟢 100% Clean</span>
-        </div>
+      <!-- Navigation & Mode Bar -->
+      <div class="flex flex-wrap items-center gap-3 text-xs">
+        <a href="#feed" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded shadow-lg shadow-emerald-500/20 transition-all">
+          ⚡ Browse Expired Domain Radar
+        </a>
+        <a href="/archive" class="bg-[#152015] hover:bg-[#1f301f] text-emerald-400 font-bold px-4 py-2 rounded border border-[#273d27] transition-all">
+          📚 Pending Delete Vault (Pro Archive)
+        </a>
+        <button id="hero-key-btn" class="bg-[#101b10] hover:bg-[#182a18] text-slate-300 font-bold px-3 py-2 rounded border border-[#1e301e] transition-all cursor-pointer">
+          🔑 Redeem License Key
+        </button>
       </div>
 
     </div>
   </section>
 
-  <!-- Interactive Live Demo & Domain Feed Table -->
-  <section class="max-w-6xl mx-auto px-4 py-8" id="feed">
+  <!-- Multi-Dimensional Filters & Scoreboard Table -->
+  <section class="max-w-6xl mx-auto px-4 py-8 font-mono" id="feed">
     
-    <!-- Mode Toggle Controls & Admin Mode Switch -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 font-mono">
+    <!-- Controls Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
       <div>
         <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-          <span>Today's Curated Clean Drops</span>
+          <span>High DR Expired Domains Scoreboard</span>
           <span id="admin-badge" class="hidden text-[10px] bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded">
-            🔐 OWNER ACCESS ACTIVE
+            🔐 PRO ACCESS ACTIVE
           </span>
         </h2>
-        <p class="text-xs text-slate-400">Free preview shows masked names & verified metrics. Pro members & Owner unlock full unmasked domain names.</p>
+        <p class="text-xs text-slate-400">Filter high authority expired domains by TLD, Niche, and ICANN drop status.</p>
       </div>
 
-      <!-- Live Switch Demo Controls -->
+      <!-- Visitor / Owner Mode Toggle Switch -->
       <div class="flex items-center gap-2 bg-[#111711] p-1.5 rounded-lg border border-[#1f2e1f] self-start">
         <button id="btn-masked" class="px-3 py-1 rounded text-xs font-bold bg-emerald-500 text-slate-950 transition-all">
           🔒 Visitor Mode (Masked)
@@ -71,25 +68,90 @@ import { DOMAINS } from '../data/domains';
       </div>
     </div>
 
-    <!-- Main Domains Scoreboard Table -->
-    <div class="bg-[#0e140e] border border-[#1c291c] rounded-xl overflow-hidden shadow-2xl font-mono">
+    <!-- Multi-Dimensional Filter Toolbar -->
+    <div class="bg-[#0e140e] p-4 rounded-xl border border-[#1c291c] mb-6 space-y-4">
+      
+      <!-- TLD Filter Badges -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs text-slate-400 font-bold mr-2 font-mono">TLD Filter:</span>
+        <button class="tld-btn active px-3 py-1 rounded-full text-xs font-bold bg-emerald-500 text-slate-950 cursor-pointer" data-tld="all">ALL</button>
+        <button class="tld-btn px-3 py-1 rounded-full text-xs font-bold bg-[#152015] text-slate-300 hover:text-white border border-[#223322] cursor-pointer" data-tld=".ai">.AI</button>
+        <button class="tld-btn px-3 py-1 rounded-full text-xs font-bold bg-[#152015] text-slate-300 hover:text-white border border-[#223322] cursor-pointer" data-tld=".com">.COM</button>
+        <button class="tld-btn px-3 py-1 rounded-full text-xs font-bold bg-[#152015] text-slate-300 hover:text-white border border-[#223322] cursor-pointer" data-tld=".io">.IO</button>
+        <button class="tld-btn px-3 py-1 rounded-full text-xs font-bold bg-[#152015] text-slate-300 hover:text-white border border-[#223322] cursor-pointer" data-tld=".dev">.DEV</button>
+        <button class="tld-btn px-3 py-1 rounded-full text-xs font-bold bg-[#152015] text-slate-300 hover:text-white border border-[#223322] cursor-pointer" data-tld=".app">.APP</button>
+        <button class="tld-btn px-3 py-1 rounded-full text-xs font-bold bg-[#152015] text-slate-300 hover:text-white border border-[#223322] cursor-pointer" data-tld=".co">.CO</button>
+      </div>
+
+      <!-- Secondary Filters: Niche & Sort Order -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[#162216]">
+        
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Niche Select -->
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs text-slate-400">Niche:</span>
+            <select id="niche-select" class="bg-[#141e14] border border-[#223222] text-white text-xs px-2.5 py-1 rounded focus:outline-none focus:border-emerald-500">
+              <option value="all">All Niches</option>
+              <option value="AI">AI & ML</option>
+              <option value="SaaS">SaaS & Cloud</option>
+              <option value="DevTools">DevTools & Ops</option>
+              <option value="Health">Health & Bio</option>
+              <option value="Finance">Finance & Crypto</option>
+              <option value="E-commerce">E-commerce</option>
+            </select>
+          </div>
+
+          <!-- Status Select -->
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs text-slate-400">Status:</span>
+            <select id="status-select" class="bg-[#141e14] border border-[#223222] text-white text-xs px-2.5 py-1 rounded focus:outline-none focus:border-emerald-500">
+              <option value="all">All Statuses</option>
+              <option value="Available">🟢 Available Now</option>
+              <option value="Pending Delete">⏳ Pending Delete</option>
+              <option value="Auction">🔨 Auction</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Sort By Controls -->
+        <div class="flex items-center gap-2 text-xs">
+          <span class="text-slate-400">Sort By:</span>
+          <select id="sort-select" class="bg-[#141e14] border border-[#223222] text-emerald-400 text-xs font-bold px-2.5 py-1 rounded focus:outline-none focus:border-emerald-500">
+            <option value="dr-desc">DR Score (High to Low)</option>
+            <option value="backlinks-desc">Backlinks Count</option>
+            <option value="age-desc">Domain Age (Oldest)</option>
+          </select>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Main Domains Table -->
+    <div class="bg-[#0e140e] border border-[#1c291c] rounded-xl overflow-hidden shadow-2xl">
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs text-slate-300">
           <thead class="bg-[#121a12] uppercase tracking-wider text-slate-400 border-b border-[#1c291c]">
             <tr>
-              <th class="py-3.5 px-4">Domain Name</th>
-              <th class="py-3.5 px-4">Niche</th>
-              <th class="py-3.5 px-4">Age</th>
-              <th class="py-3.5 px-4">DR Score</th>
+              <th class="py-3.5 px-4">Expired Domain Name</th>
+              <th class="py-3.5 px-4">ICANN Status</th>
+              <th class="py-3.5 px-4">Niche Category</th>
+              <th class="py-3.5 px-4">DR Rating</th>
               <th class="py-3.5 px-4">Backlinks / Ref</th>
-              <th class="py-3.5 px-4">Featured Sources</th>
-              <th class="py-3.5 px-4">History</th>
+              <th class="py-3.5 px-4">Featured Authority Sources</th>
               <th class="py-3.5 px-4 text-right">Action</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-[#182318]">
+          <tbody id="domain-table-body" class="divide-y divide-[#182318]">
             {DOMAINS.map(domain => (
-              <tr class="hover:bg-[#131d13] transition-colors">
+              <tr class="domain-row hover:bg-[#131d13] transition-colors" 
+                  data-tld={domain.tld} 
+                  data-niche={domain.niche} 
+                  data-status={domain.dropStatus} 
+                  data-dr={domain.drScore} 
+                  data-backlinks={domain.backlinksCount} 
+                  data-age={domain.domainAgeYears}>
+                
                 <td class="py-4 px-4 font-bold">
                   <div class="flex items-center gap-2">
                     <span class="domain-name text-emerald-400 font-mono text-sm" data-masked={domain.maskedName} data-full={domain.name}>
@@ -100,20 +162,37 @@ import { DOMAINS } from '../data/domains';
                     </span>
                   </div>
                 </td>
+
+                <td class="py-4 px-4">
+                  <span class={`text-[11px] font-bold px-2 py-0.5 rounded border ${
+                    domain.dropStatus === 'Available' 
+                      ? 'bg-emerald-950 text-emerald-400 border-emerald-500/40' 
+                      : domain.dropStatus === 'Pending Delete'
+                      ? 'bg-amber-950 text-amber-400 border-amber-500/40'
+                      : 'bg-blue-950 text-blue-400 border-blue-500/40'
+                  }`}>
+                    {domain.dropStatus === 'Available' ? '🟢 Available' :
+                     domain.dropStatus === 'Pending Delete' ? '⏳ Pending Delete' :
+                     '🔨 Auction'}
+                  </span>
+                </td>
+
                 <td class="py-4 px-4">
                   <span class="bg-[#162216] text-slate-300 px-2 py-0.5 rounded border border-[#223222]">
                     {domain.niche}
                   </span>
                 </td>
-                <td class="py-4 px-4 text-slate-300">{domain.domainAgeYears} Yrs</td>
+
                 <td class="py-4 px-4">
                   <span class="font-bold text-white bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30">
                     DR {domain.drScore}
                   </span>
                 </td>
+
                 <td class="py-4 px-4 text-slate-300">
                   <strong>{domain.backlinksCount.toLocaleString()}</strong> ({domain.referringDomains} ref)
                 </td>
+
                 <td class="py-4 px-4">
                   <div class="flex flex-wrap gap-1">
                     {domain.featuredBacklinks.map(source => (
@@ -123,13 +202,9 @@ import { DOMAINS } from '../data/domains';
                     ))}
                   </div>
                 </td>
-                <td class="py-4 px-4">
-                  <span class="text-[11px] text-emerald-400 font-bold">
-                    🟢 Verified Clean
-                  </span>
-                </td>
+
                 <td class="py-4 px-4 text-right">
-                  <button class="btn-action text-[11px] bg-[#1a281a] hover:bg-[#233823] text-emerald-400 font-bold px-3 py-1.5 rounded border border-[#294029] inline-flex items-center gap-1 transition-colors cursor-pointer" data-[#domain-full]={domain.name}>
+                  <button class="btn-action text-[11px] bg-[#1a281a] hover:bg-[#233823] text-emerald-400 font-bold px-3 py-1.5 rounded border border-[#294029] inline-flex items-center gap-1 transition-colors cursor-pointer" data-full={domain.name} data-check={domain.checkUrl}>
                     <span class="action-text">Unlock Name 🔒</span>
                   </button>
                 </td>
@@ -142,44 +217,44 @@ import { DOMAINS } from '../data/domains';
 
   </section>
 
-  <!-- Pricing & Unlock Pro Section -->
-  <section class="max-w-6xl mx-auto px-4 py-12" id="pricing">
-    <div class="bg-gradient-to-br from-[#101810] to-[#0a0e0a] border border-emerald-500/30 rounded-2xl p-8 sm:p-12 font-mono">
+  <!-- Pricing Section for Pro Membership ($19/mo) -->
+  <section class="max-w-6xl mx-auto px-4 py-12 font-mono" id="pricing">
+    <div class="bg-gradient-to-br from-[#101810] to-[#0a0e0a] border border-emerald-500/30 rounded-2xl p-8 sm:p-12">
       <div class="max-w-3xl">
-        <span class="text-xs text-emerald-400 uppercase tracking-widest block mb-2">NEVER MISS A CLEAN HIGH-DR DOMAIN DROP</span>
+        <span class="text-xs text-emerald-400 uppercase tracking-widest block mb-2">NEVER MISS A CLEAN HIGH-DR EXPIRED DOMAIN DROP</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">
-          Unlock Full Unmasked Domain Names & Daily Alerts
+          Unlock Full Unmasked Expired Domains & Direct Registrar Links
         </h2>
         <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-8">
-          Top domain drops get registered within hours. Get full unmasked domain names, direct registrar links, daily morning email digest, and real-time Telegram alerts.
+          Get full unmasked domain names, direct registrar links, daily morning email digest, and instant pending delete alerts.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
           <div class="bg-[#0b0e0b] p-6 rounded-xl border border-emerald-500/40 relative">
-            <span class="absolute top-3 right-3 text-[10px] bg-emerald-500 text-slate-950 font-bold px-2 py-0.5 rounded">MOST POPULAR</span>
+            <span class="absolute top-3 right-3 text-[10px] bg-emerald-500 text-slate-950 font-bold px-2 py-0.5 rounded">HIGH VALUE / BEST SELLER</span>
             <h3 class="text-lg font-bold text-white mb-1">Pro Membership</h3>
-            <div class="text-3xl font-extrabold text-emerald-400 mb-4">$29 <span class="text-xs text-slate-400 font-normal">/ month</span></div>
+            <div class="text-3xl font-extrabold text-emerald-400 mb-4">$19 <span class="text-xs text-slate-400 font-normal">/ month</span></div>
             <ul class="text-xs text-slate-300 space-y-2 mb-6">
-              <li class="flex items-center gap-2">✓ Full unmasked domain names</li>
-              <li class="flex items-center gap-2">✓ Daily 8:00 AM email morning digest</li>
-              <li class="flex items-center gap-2">✓ Real-time Telegram alert channel</li>
-              <li class="flex items-center gap-2">✓ Full Wayback Machine safety history</li>
+              <li class="flex items-center gap-2">✓ Full unmasked expired domain names</li>
+              <li class="flex items-center gap-2">✓ Direct one-click registrar links</li>
+              <li class="flex items-center gap-2">✓ License Key instant activation</li>
+              <li class="flex items-center gap-2">✓ Pending Delete & Auction alerts</li>
             </ul>
-            <button class="open-checkout w-full text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded text-xs transition-colors shadow-lg shadow-emerald-500/20 cursor-pointer" data-plan="Pro Membership ($29/mo)">
-              🚀 Subscribe Pro ($29/mo)
+            <button class="open-checkout w-full text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded text-xs transition-colors shadow-lg shadow-emerald-500/20 cursor-pointer" data-plan="Pro Membership ($19/mo)">
+              🚀 Subscribe Pro ($19/mo)
             </button>
           </div>
 
           <div class="bg-[#0b0e0b] p-6 rounded-xl border border-[#1b261b]">
             <h3 class="text-lg font-bold text-white mb-1">Agency & API</h3>
-            <div class="text-3xl font-extrabold text-white mb-4">$79 <span class="text-xs text-slate-400 font-normal">/ month</span></div>
+            <div class="text-3xl font-extrabold text-white mb-4">$49 <span class="text-xs text-slate-400 font-normal">/ month</span></div>
             <ul class="text-xs text-slate-400 space-y-2 mb-6">
               <li class="flex items-center gap-2">✓ Everything in Pro Membership</li>
               <li class="flex items-center gap-2">✓ CSV & JSON Data Export</li>
               <li class="flex items-center gap-2">✓ API Access for Automated Registrations</li>
               <li class="flex items-center gap-2">✓ 1-Hour Early Access Priority Feed</li>
             </ul>
-            <button class="open-checkout w-full text-center bg-[#182418] hover:bg-[#223322] text-white font-bold py-2.5 rounded text-xs border border-[#2a3c2a] transition-colors cursor-pointer" data-plan="Agency Plan ($79/mo)">
+            <button class="open-checkout w-full text-center bg-[#182418] hover:bg-[#223322] text-white font-bold py-2.5 rounded text-xs border border-[#2a3c2a] transition-colors cursor-pointer" data-plan="Agency Plan ($49/mo)">
               Get Agency Access
             </button>
           </div>
@@ -188,57 +263,127 @@ import { DOMAINS } from '../data/domains';
     </div>
   </section>
 
-  <!-- Professional Checkout & Owner Modal -->
+  <!-- Pricing & License Key Activation Modal -->
   <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 font-mono">
-    <div class="bg-[#0e140e] border border-emerald-500/40 rounded-2xl p-6 sm:p-8 max-w-md w-full relative shadow-2xl">
+    <div class="bg-[#0e140e] border border-emerald-500/40 rounded-2xl p-6 max-w-md w-full relative shadow-2xl">
       <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
 
       <div class="text-center mb-6">
         <span class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold mx-auto mb-2 text-lg">🔒</span>
         <h3 id="modal-title" class="text-xl font-bold text-white">Unlock Pro Membership</h3>
-        <p class="text-slate-400 text-xs mt-1">Get immediate unmasked domain access & daily radar feed</p>
+        <p class="text-slate-400 text-xs mt-1">Get immediate unmasked domain access & direct registrar links</p>
       </div>
 
-      <!-- Stripe / Payment Options Mock -->
       <div class="space-y-4 mb-6">
         <div class="bg-[#080b08] p-4 rounded-xl border border-[#1c291c] text-xs">
           <div class="flex justify-between font-bold text-white mb-1">
-            <span id="selected-plan">Pro Membership ($29/mo)</span>
+            <span>Pro Membership ($19/mo)</span>
             <span class="text-emerald-400">Auto-Renews</span>
           </div>
-          <p class="text-slate-500 text-[11px]">Instant access to all 50,000+ unmasked expired domain radar feeds.</p>
+          <p class="text-slate-500 text-[11px]">Instant access to all unmasked expired domain radar feeds.</p>
         </div>
 
-        <a id="stripe-checkout-btn" href="mailto:subscribe@nichedomainradar.com?subject=Subscribe%20Pro" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded text-center text-xs shadow-lg shadow-emerald-500/20 transition-all">
+        <a href="mailto:subscribe@nichedomainradar.com?subject=Subscribe%20Pro" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded text-center text-xs shadow-lg transition-all">
           💳 Proceed to Checkout (Stripe / Card)
         </a>
       </div>
 
+      <!-- License Key Activation Section -->
+      <div class="border-t border-[#1c291c] pt-4">
+        <span class="text-[11px] text-slate-400 block mb-2 font-bold">Already subscribed? Enter your License Key:</span>
+        <div class="flex gap-2">
+          <input type="text" id="license-key-input" placeholder="e.g. RADAR-8F92-4A1C-99B2" class="bg-[#141e14] border border-[#223222] text-white text-xs px-3 py-2 rounded focus:outline-none focus:border-emerald-500 w-full" />
+          <button id="activate-key-btn" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs px-3 py-2 rounded shrink-0 cursor-pointer">
+            Activate
+          </button>
+        </div>
+      </div>
+
       <!-- Owner Quick Access Pass -->
-      <div class="border-t border-[#1c291c] pt-4 text-center">
-        <span class="text-[11px] text-slate-500 block mb-2">Are you the Site Owner / Founder?</span>
-        <button id="owner-pass-btn" class="text-xs text-emerald-400 hover:underline font-bold cursor-pointer">
-          🔐 Enable Owner Pass (Instant Full Unmask)
+      <div class="border-t border-[#1c291c] mt-4 pt-3 text-center">
+        <button id="owner-pass-btn" class="text-[11px] text-slate-500 hover:text-emerald-400 transition-colors cursor-pointer">
+          🔐 Founder Access (Instant Full Access)
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Client-side Logic for Owner Mode & Modals -->
+  <!-- Filter & Sort Script -->
   <script>
+    const tldButtons = document.querySelectorAll('.tld-btn');
+    const nicheSelect = document.getElementById('niche-select') as HTMLSelectElement;
+    const statusSelect = document.getElementById('status-select') as HTMLSelectElement;
+    const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+    const rows = Array.from(document.querySelectorAll('.domain-row')) as HTMLElement[];
+    const tbody = document.getElementById('domain-table-body');
+
+    let currentTld = 'all';
+
+    function applyFiltersAndSort() {
+      const selectedNiche = nicheSelect?.value || 'all';
+      const selectedStatus = statusSelect?.value || 'all';
+      const selectedSort = sortSelect?.value || 'dr-desc';
+
+      rows.forEach(row => {
+        const rowTld = row.getAttribute('data-tld');
+        const rowNiche = row.getAttribute('data-niche');
+        const rowStatus = row.getAttribute('data-status');
+
+        const matchTld = currentTld === 'all' || rowTld === currentTld;
+        const matchNiche = selectedNiche === 'all' || rowNiche === selectedNiche;
+        const matchStatus = selectedStatus === 'all' || rowStatus === selectedStatus;
+
+        if (matchTld && matchNiche && matchStatus) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      const sortedRows = rows.slice().sort((a, b) => {
+        if (selectedSort === 'dr-desc') {
+          return (parseInt(b.getAttribute('data-dr') || '0')) - (parseInt(a.getAttribute('data-dr') || '0'));
+        } else if (selectedSort === 'backlinks-desc') {
+          return (parseInt(b.getAttribute('data-backlinks') || '0')) - (parseInt(a.getAttribute('data-backlinks') || '0'));
+        } else if (selectedSort === 'age-desc') {
+          return (parseInt(b.getAttribute('data-age') || '0')) - (parseInt(a.getAttribute('data-age') || '0'));
+        }
+        return 0;
+      });
+
+      sortedRows.forEach(row => tbody?.appendChild(row));
+    }
+
+    tldButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tldButtons.forEach(b => {
+          b.classList.remove('bg-emerald-500', 'text-slate-950');
+          b.classList.add('bg-[#152015]', 'text-slate-300');
+        });
+        btn.classList.add('bg-emerald-500', 'text-slate-950');
+        btn.classList.remove('bg-[#152015]', 'text-slate-300');
+
+        currentTld = btn.getAttribute('data-tld') || 'all';
+        applyFiltersAndSort();
+      });
+    });
+
+    nicheSelect?.addEventListener('change', applyFiltersAndSort);
+    statusSelect?.addEventListener('change', applyFiltersAndSort);
+    sortSelect?.addEventListener('change', applyFiltersAndSort);
+
+    // Owner / Pro License Mode Integration
     const btnMasked = document.getElementById('btn-masked');
     const btnUnlocked = document.getElementById('btn-unlocked');
     const domainElements = document.querySelectorAll('.domain-name');
     const actionButtons = document.querySelectorAll('.btn-action');
     const adminBadge = document.getElementById('admin-badge');
-
     const modal = document.getElementById('checkout-modal');
     const closeModal = document.getElementById('close-modal');
-    const openCheckoutBtns = document.querySelectorAll('.open-checkout');
-    const selectedPlanText = document.getElementById('selected-plan');
     const ownerPassBtn = document.getElementById('owner-pass-btn');
-
-    let isOwnerMode = localStorage.getItem('isOwnerMode') === 'true';
+    const heroKeyBtn = document.getElementById('hero-key-btn');
+    const activateKeyBtn = document.getElementById('activate-key-btn');
+    const licenseKeyInput = document.getElementById('license-key-input') as HTMLInputElement;
 
     function updateMode(unlocked: boolean) {
       if (unlocked) {
@@ -255,7 +400,7 @@ import { DOMAINS } from '../data/domains';
 
         actionButtons.forEach(btn => {
           const textEl = btn.querySelector('.action-text');
-          if (textEl) textEl.textContent = 'Full Unlocked 🔓';
+          if (textEl) textEl.textContent = 'Check Registrar ↗';
           btn.classList.add('text-emerald-300');
         });
       } else {
@@ -277,13 +422,13 @@ import { DOMAINS } from '../data/domains';
       }
     }
 
-    // Initialize State
-    if (isOwnerMode) {
+    if (localStorage.getItem('isOwnerMode') === 'true' || localStorage.getItem('proLicenseKey')) {
       updateMode(true);
     }
 
     btnMasked?.addEventListener('click', () => {
       localStorage.setItem('isOwnerMode', 'false');
+      localStorage.removeItem('proLicenseKey');
       updateMode(false);
     });
 
@@ -292,20 +437,28 @@ import { DOMAINS } from '../data/domains';
       updateMode(true);
     });
 
-    // Checkout Modal Logic
-    openCheckoutBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const plan = btn.getAttribute('data-plan') || 'Pro Membership';
-        if (selectedPlanText) selectedPlanText.textContent = plan;
-        modal?.classList.remove('hidden');
-      });
+    heroKeyBtn?.addEventListener('click', () => {
+      modal?.classList.remove('hidden');
+    });
+
+    activateKeyBtn?.addEventListener('click', () => {
+      const val = licenseKeyInput?.value.trim();
+      if (val) {
+        localStorage.setItem('proLicenseKey', val);
+        localStorage.setItem('isOwnerMode', 'true');
+        updateMode(true);
+        modal?.classList.add('hidden');
+        alert(`🎉 Pro Membership Activated with Key: ${val}\nFull unmasked access & direct registrar links enabled!`);
+      } else {
+        alert('Please enter a valid Pro License Key.');
+      }
     });
 
     actionButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        if (localStorage.getItem('isOwnerMode') === 'true') {
-          const fullName = btn.getAttribute('data-[#domain-full]') || '';
-          alert(`🔓 Owner Pass Active!\nFull Domain: ${fullName}\nStatus: Verified Clean (DR 38+)`);
+        if (localStorage.getItem('isOwnerMode') === 'true' || localStorage.getItem('proLicenseKey')) {
+          const checkUrl = btn.getAttribute('data-check');
+          if (checkUrl) window.open(checkUrl, '_blank');
         } else {
           modal?.classList.remove('hidden');
         }
@@ -320,7 +473,7 @@ import { DOMAINS } from '../data/domains';
       localStorage.setItem('isOwnerMode', 'true');
       updateMode(true);
       modal?.classList.add('hidden');
-      alert('🔐 Owner Pass Enabled! You now have full unmasked access to all domains.');
+      alert('🔐 Founder Access Enabled! Full unmasked names & direct registrar links unlocked.');
     });
   </script>
 

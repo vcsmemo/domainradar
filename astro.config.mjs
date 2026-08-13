@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://niche-domain-radar.pages.dev',
+  site: 'https://nichedomainradar.pages.dev',
   output: 'static',
   vite: {
     plugins: [tailwindcss()],

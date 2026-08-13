@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { DOMAINS } from '../data/domains';
+---
+
+<Layout title="Historical Vault · Archived Expired Domains Database">
+  <section class="py-10 px-4 border-b border-[#1b261b] bg-[#090e09] font-mono">
+    <div class="max-w-6xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#132213] border border-emerald-500/30 text-emerald-400 text-xs mb-3">
+        📚 HISTORICAL ARCHIVE VAULT · 5,000+ EXPIRATION LOGS
+      </div>
+      <h1 class="text-3xl font-extrabold text-white mb-2">
+        Past Expired Domain Archive & Backlink Database
+      </h1>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-2xl">
+        Browse historical dropped domains from previous daily radar runs. Filter by TLD, DR score, and backlinks history. Pro subscribers get unlimited search & CSV export access.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-8 font-mono">
+    <!-- Search & Filter Bar for Archive -->
+    <div class="bg-[#0e140e] p-4 rounded-xl border border-[#1c291c] mb-6 flex flex-col sm:flex-row gap-3 items-center justify-between">
+      <div class="flex items-center gap-2 w-full sm:w-auto">
+        <span class="text-xs text-slate-400">Search:</span>
+        <input type="text" placeholder="e.g. ai, dev, saas..." class="bg-[#141e14] border border-[#223222] text-white text-xs px-3 py-1.5 rounded focus:outline-none focus:border-emerald-500 w-full sm:w-48" />
+      </div>
+
+      <div class="flex items-center gap-2 text-xs">
+        <span class="text-slate-400">Export:</span>
+        <button class="bg-[#1b2a1b] text-emerald-400 hover:bg-[#243824] px-3 py-1.5 rounded border border-[#2a3f2a] font-bold flex items-center gap-1 cursor-pointer">
+          📥 Export CSV (Pro)
+        </button>
+      </div>
+    </div>
+
+    <!-- Archive Table -->
+    <div class="bg-[#0e140e] border border-[#1c291c] rounded-xl overflow-hidden shadow-2xl">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-slate-300">
+          <thead class="bg-[#121a12] uppercase tracking-wider text-slate-400 border-b border-[#1c291c]">
+            <tr>
+              <th class="py-3.5 px-4">Archived Domain</th>
+              <th class="py-3.5 px-4">Date Dropped</th>
+              <th class="py-3.5 px-4">Niche</th>
+              <th class="py-3.5 px-4">DR Score</th>
+              <th class="py-3.5 px-4">Backlinks</th>
+              <th class="py-3.5 px-4 text-right">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#182318]">
+            {DOMAINS.map(domain => (
+              <tr class="hover:bg-[#131d13] transition-colors">
+                <td class="py-4 px-4 font-bold">
+                  <span class="text-emerald-400 font-mono text-sm">{domain.maskedName}</span>
+                </td>
+                <td class="py-4 px-4 text-slate-400">{domain.droppedAt}</td>
+                <td class="py-4 px-4">
+                  <span class="bg-[#162216] text-slate-300 px-2 py-0.5 rounded border border-[#223222]">{domain.niche}</span>
+                </td>
+                <td class="py-4 px-4 font-bold text-emerald-400">DR {domain.drScore}</td>
+                <td class="py-4 px-4">{domain.backlinksCount.toLocaleString()}</td>
+                <td class="py-4 px-4 text-right">
+                  <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30">
+                    Archived Log
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</Layout>

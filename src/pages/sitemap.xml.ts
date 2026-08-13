@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { DOMAINS } from '../data/domains';
 
 export const GET: APIRoute = async () => {
-  const baseUrl = 'https://niche-domain-radar.pages.dev';
+  const baseUrl = 'https://nichedomainradar.pages.dev';
 
   const domainUrls = DOMAINS.map(
     domain => `
@@ -14,14 +14,34 @@ export const GET: APIRoute = async () => {
   </url>`
   ).join('');
 
-  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  const staticUrls = `
   <url>
     <loc>${baseUrl}/</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-  </url>${domainUrls}
+  </url>
+  <url>
+    <loc>${baseUrl}/archive</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/privacy</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/terms</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>`;
+
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${staticUrls}${domainUrls}
 </urlset>`;
 
   return new Response(sitemapXml, {

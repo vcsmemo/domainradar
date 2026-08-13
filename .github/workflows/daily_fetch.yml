@@ -1,20 +1,17 @@
-name: Daily Domain Radar Fetcher
+name: Fully Automated Daily Domain Radar & Cloudflare Deploy
 
 on:
   schedule:
-    # 每日 UTC 07:00 (北京时间 15:00) 自动定时触发
+    # 每日 UTC 07:00 (北京时间 15:00) 自动在云端全自动运行与部署
     - cron: '0 7 * * *'
-  # 允许在 GitHub Actions 界面手动一键触发运行
   workflow_dispatch:
 
 jobs:
-  fetch-and-update:
+  auto-fetch-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - name: Check out repository
+      - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -22,13 +19,23 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Run Data Pipeline (Fetch & Clean Expired Domains)
         run: |
           python scripts/fetch_domains.py
 
-      - name: Commit and Push Updated Data
+      - name: Install Dependencies & Build SSG Site
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/domains.ts scripts/
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(data): auto-update daily clean expired domains [skip ci]" && git push)
+          npm install
+          npm run build
+
+      - name: Deploy Directly to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx wrangler pages deploy dist --project-name=domainradar

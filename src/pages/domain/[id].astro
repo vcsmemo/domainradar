@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { DOMAINS } from '../../data/domains';
+
+export function getStaticPaths() {
+  return DOMAINS.map(domain => ({
+    params: { id: String(domain.id) },
+    props: { domain },
+  }));
+}
+
+const { domain } = Astro.props;
+---
+
+<Layout title={`${domain.maskedName} · Expired Domain Analysis & Metrics`} description={`Analysis report for ${domain.maskedName}. Domain rating DR ${domain.drScore}, ${domain.backlinksCount} backlinks from top sources.`}>
+
+  <!-- Sub Header / Breadcrumb -->
+  <div class="border-b border-[#1c291c] bg-[#060806] py-2.5 text-xs font-mono text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex items-center gap-2">
+      <a href="/" class="hover:text-emerald-400">Radar Feed</a>
+      <span>/</span>
+      <a href="/#feed" class="hover:text-emerald-400">{domain.niche}</a>
+      <span>/</span>
+      <span class="text-slate-300 font-semibold">{domain.maskedName}</span>
+    </div>
+  </div>
+
+  <!-- Domain Analysis Detail Card -->
+  <section class="max-w-4xl mx-auto px-4 py-10 font-mono">
+    
+    <div class="bg-[#0e140e] border border-[#1d2a1d] rounded-xl p-6 sm:p-8 shadow-2xl mb-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#1c291c]">
+        <div>
+          <div class="inline-block bg-[#162216] text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-500/30 uppercase tracking-widest mb-2">
+            {domain.niche} NICHE EXPIRED DOMAIN
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight flex items-center gap-2">
+            <span>{domain.maskedName}</span>
+            <span class="text-xs text-slate-400 font-normal bg-[#141e14] px-2 py-1 rounded border border-[#203020]">
+              {domain.tld}
+            </span>
+          </h1>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="/#pricing" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded text-xs transition-colors shadow-lg shadow-emerald-500/20">
+            🔒 Unlock Full Name (Pro)
+          </a>
+        </div>
+      </div>
+
+      <!-- Key Metrics Breakdown Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 text-xs">
+        <div class="bg-[#080b08] p-3 rounded border border-[#1b261b]">
+          <span class="text-slate-500 block text-[10px]">DOMAIN RATING</span>
+          <span class="text-emerald-400 font-bold text-base">DR {domain.drScore}</span>
+        </div>
+        <div class="bg-[#080b08] p-3 rounded border border-[#1b261b]">
+          <span class="text-slate-500 block text-[10px]">TOTAL BACKLINKS</span>
+          <span class="text-white font-bold text-base">{domain.backlinksCount.toLocaleString()}</span>
+        </div>
+        <div class="bg-[#080b08] p-3 rounded border border-[#1b261b]">
+          <span class="text-slate-500 block text-[10px]">REFERRING DOMAINS</span>
+          <span class="text-white font-bold text-base">{domain.referringDomains}</span>
+        </div>
+        <div class="bg-[#080b08] p-3 rounded border border-[#1b261b]">
+          <span class="text-slate-500 block text-[10px]">DOMAIN AGE</span>
+          <span class="text-white font-bold text-base">{domain.domainAgeYears} Years</span>
+        </div>
+      </div>
+
+      <!-- Backlink Verification Sources -->
+      <div class="mt-6 bg-[#080b08] border border-[#1b261b] rounded p-4">
+        <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-2">VERIFIED TOP BACKLINK SOURCES</span>
+        <div class="flex flex-wrap gap-2">
+          {domain.featuredBacklinks.map(source => (
+            <span class="bg-[#142014] text-emerald-300 text-xs px-2.5 py-1 rounded border border-emerald-500/30">
+              🔗 {source}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Clean History Safety Report -->
+      <div class="mt-6 bg-[#080b08] border border-[#1b261b] rounded p-4 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] text-slate-500 uppercase tracking-widest block">SPAM & PENALTY CHECK</span>
+          <span class="text-emerald-400 font-bold text-xs">🟢 100% Clean — Passed Wayback Spam Audit</span>
+        </div>
+        <span class="text-slate-500 text-xs">Dropped: {domain.droppedAt}</span>
+      </div>
+
+    </div>
+
+    <!-- Related Domains -->
+    <div>
+      <h3 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Similar Clean Domains in {domain.niche}</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {DOMAINS.filter(d => d.id !== domain.id && d.niche === domain.niche).map(rel => (
+          <a href={`/domain/${rel.id}`} class="bg-[#0e140e] border border-[#1b261b] hover:border-emerald-500/40 p-4 rounded-lg transition-colors flex items-center justify-between">
+            <div>
+              <span class="text-emerald-400 font-bold text-xs">{rel.maskedName}</span>
+              <span class="text-slate-500 text-[10px] block">{rel.domainAgeYears} Yrs · {rel.backlinksCount} Links</span>
+            </div>
+            <span class="bg-[#142014] text-emerald-400 text-xs font-bold px-2 py-0.5 rounded border border-emerald-500/30">
+              DR {rel.drScore}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+  </section>
+
+</Layout>

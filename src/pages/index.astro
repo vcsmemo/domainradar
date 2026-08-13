@@ -1,0 +1,327 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { DOMAINS } from '../data/domains';
+---
+
+<Layout title="NicheDomainRadar · Daily Curated Clean Expired Domains for Indie Builders">
+  
+  <!-- Hero Section -->
+  <section class="border-b border-[#1b261b] py-12 px-4 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto text-left">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#132213] border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-4">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        DAILY RADAR ACTIVE · {DOMAINS.length} CLEAN HIGH-AUTHORITY DOMAINS TODAY
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 font-mono">
+        Clean Expired Domains for <span class="text-emerald-400">Indie Builders & SEO</span>
+      </h1>
+
+      <p class="text-slate-400 text-sm sm:text-base max-w-2xl font-mono leading-relaxed mb-8">
+        We scan 50,000+ daily dropped domains, filter out spam/penalties, and deliver clean, high-DR domains with top-tier backlinks (TechCrunch, ProductHunt, Medium).
+      </p>
+
+      <!-- Key Metrics Header Banner -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl font-mono text-xs mb-6">
+        <div class="bg-[#111711] p-3 rounded border border-[#1f2e1f]">
+          <span class="text-slate-500 block text-[10px]">AVG DOMAIN AGE</span>
+          <span class="text-white font-bold text-sm">5.5 Years</span>
+        </div>
+        <div class="bg-[#111711] p-3 rounded border border-[#1f2e1f]">
+          <span class="text-slate-500 block text-[10px]">AVG DR SCORE</span>
+          <span class="text-emerald-400 font-bold text-sm">DR 37+</span>
+        </div>
+        <div class="bg-[#111711] p-3 rounded border border-[#1f2e1f]">
+          <span class="text-slate-500 block text-[10px]">MAX BACKLINKS</span>
+          <span class="text-white font-bold text-sm">5,100 Links</span>
+        </div>
+        <div class="bg-[#111711] p-3 rounded border border-[#1f2e1f]">
+          <span class="text-slate-500 block text-[10px]">SAFETY CHECK</span>
+          <span class="text-emerald-400 font-bold text-sm">🟢 100% Clean</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Live Demo & Domain Feed Table -->
+  <section class="max-w-6xl mx-auto px-4 py-8" id="feed">
+    
+    <!-- Mode Toggle Controls & Admin Mode Switch -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 font-mono">
+      <div>
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <span>Today's Curated Clean Drops</span>
+          <span id="admin-badge" class="hidden text-[10px] bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded">
+            🔐 OWNER ACCESS ACTIVE
+          </span>
+        </h2>
+        <p class="text-xs text-slate-400">Free preview shows masked names & verified metrics. Pro members & Owner unlock full unmasked domain names.</p>
+      </div>
+
+      <!-- Live Switch Demo Controls -->
+      <div class="flex items-center gap-2 bg-[#111711] p-1.5 rounded-lg border border-[#1f2e1f] self-start">
+        <button id="btn-masked" class="px-3 py-1 rounded text-xs font-bold bg-emerald-500 text-slate-950 transition-all">
+          🔒 Visitor Mode (Masked)
+        </button>
+        <button id="btn-unlocked" class="px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white transition-all">
+          🔓 Owner / Pro Mode (Full)
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Domains Scoreboard Table -->
+    <div class="bg-[#0e140e] border border-[#1c291c] rounded-xl overflow-hidden shadow-2xl font-mono">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-slate-300">
+          <thead class="bg-[#121a12] uppercase tracking-wider text-slate-400 border-b border-[#1c291c]">
+            <tr>
+              <th class="py-3.5 px-4">Domain Name</th>
+              <th class="py-3.5 px-4">Niche</th>
+              <th class="py-3.5 px-4">Age</th>
+              <th class="py-3.5 px-4">DR Score</th>
+              <th class="py-3.5 px-4">Backlinks / Ref</th>
+              <th class="py-3.5 px-4">Featured Sources</th>
+              <th class="py-3.5 px-4">History</th>
+              <th class="py-3.5 px-4 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#182318]">
+            {DOMAINS.map(domain => (
+              <tr class="hover:bg-[#131d13] transition-colors">
+                <td class="py-4 px-4 font-bold">
+                  <div class="flex items-center gap-2">
+                    <span class="domain-name text-emerald-400 font-mono text-sm" data-masked={domain.maskedName} data-full={domain.name}>
+                      {domain.maskedName}
+                    </span>
+                    <span class="text-[10px] text-slate-500 bg-[#162016] px-1.5 py-0.5 rounded border border-[#223222]">
+                      {domain.tld}
+                    </span>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="bg-[#162216] text-slate-300 px-2 py-0.5 rounded border border-[#223222]">
+                    {domain.niche}
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-slate-300">{domain.domainAgeYears} Yrs</td>
+                <td class="py-4 px-4">
+                  <span class="font-bold text-white bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30">
+                    DR {domain.drScore}
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-slate-300">
+                  <strong>{domain.backlinksCount.toLocaleString()}</strong> ({domain.referringDomains} ref)
+                </td>
+                <td class="py-4 px-4">
+                  <div class="flex flex-wrap gap-1">
+                    {domain.featuredBacklinks.map(source => (
+                      <span class="text-[10px] bg-[#162216] text-emerald-300/80 px-1.5 py-0.5 rounded">
+                        {source}
+                      </span>
+                    ))}
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="text-[11px] text-emerald-400 font-bold">
+                    🟢 Verified Clean
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <button class="btn-action text-[11px] bg-[#1a281a] hover:bg-[#233823] text-emerald-400 font-bold px-3 py-1.5 rounded border border-[#294029] inline-flex items-center gap-1 transition-colors cursor-pointer" data-[#domain-full]={domain.name}>
+                    <span class="action-text">Unlock Name 🔒</span>
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Pricing & Unlock Pro Section -->
+  <section class="max-w-6xl mx-auto px-4 py-12" id="pricing">
+    <div class="bg-gradient-to-br from-[#101810] to-[#0a0e0a] border border-emerald-500/30 rounded-2xl p-8 sm:p-12 font-mono">
+      <div class="max-w-3xl">
+        <span class="text-xs text-emerald-400 uppercase tracking-widest block mb-2">NEVER MISS A CLEAN HIGH-DR DOMAIN DROP</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">
+          Unlock Full Unmasked Domain Names & Daily Alerts
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-8">
+          Top domain drops get registered within hours. Get full unmasked domain names, direct registrar links, daily morning email digest, and real-time Telegram alerts.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+          <div class="bg-[#0b0e0b] p-6 rounded-xl border border-emerald-500/40 relative">
+            <span class="absolute top-3 right-3 text-[10px] bg-emerald-500 text-slate-950 font-bold px-2 py-0.5 rounded">MOST POPULAR</span>
+            <h3 class="text-lg font-bold text-white mb-1">Pro Membership</h3>
+            <div class="text-3xl font-extrabold text-emerald-400 mb-4">$29 <span class="text-xs text-slate-400 font-normal">/ month</span></div>
+            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+              <li class="flex items-center gap-2">✓ Full unmasked domain names</li>
+              <li class="flex items-center gap-2">✓ Daily 8:00 AM email morning digest</li>
+              <li class="flex items-center gap-2">✓ Real-time Telegram alert channel</li>
+              <li class="flex items-center gap-2">✓ Full Wayback Machine safety history</li>
+            </ul>
+            <button class="open-checkout w-full text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded text-xs transition-colors shadow-lg shadow-emerald-500/20 cursor-pointer" data-plan="Pro Membership ($29/mo)">
+              🚀 Subscribe Pro ($29/mo)
+            </button>
+          </div>
+
+          <div class="bg-[#0b0e0b] p-6 rounded-xl border border-[#1b261b]">
+            <h3 class="text-lg font-bold text-white mb-1">Agency & API</h3>
+            <div class="text-3xl font-extrabold text-white mb-4">$79 <span class="text-xs text-slate-400 font-normal">/ month</span></div>
+            <ul class="text-xs text-slate-400 space-y-2 mb-6">
+              <li class="flex items-center gap-2">✓ Everything in Pro Membership</li>
+              <li class="flex items-center gap-2">✓ CSV & JSON Data Export</li>
+              <li class="flex items-center gap-2">✓ API Access for Automated Registrations</li>
+              <li class="flex items-center gap-2">✓ 1-Hour Early Access Priority Feed</li>
+            </ul>
+            <button class="open-checkout w-full text-center bg-[#182418] hover:bg-[#223322] text-white font-bold py-2.5 rounded text-xs border border-[#2a3c2a] transition-colors cursor-pointer" data-plan="Agency Plan ($79/mo)">
+              Get Agency Access
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Checkout & Owner Modal -->
+  <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 font-mono">
+    <div class="bg-[#0e140e] border border-emerald-500/40 rounded-2xl p-6 sm:p-8 max-w-md w-full relative shadow-2xl">
+      <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+
+      <div class="text-center mb-6">
+        <span class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold mx-auto mb-2 text-lg">🔒</span>
+        <h3 id="modal-title" class="text-xl font-bold text-white">Unlock Pro Membership</h3>
+        <p class="text-slate-400 text-xs mt-1">Get immediate unmasked domain access & daily radar feed</p>
+      </div>
+
+      <!-- Stripe / Payment Options Mock -->
+      <div class="space-y-4 mb-6">
+        <div class="bg-[#080b08] p-4 rounded-xl border border-[#1c291c] text-xs">
+          <div class="flex justify-between font-bold text-white mb-1">
+            <span id="selected-plan">Pro Membership ($29/mo)</span>
+            <span class="text-emerald-400">Auto-Renews</span>
+          </div>
+          <p class="text-slate-500 text-[11px]">Instant access to all 50,000+ unmasked expired domain radar feeds.</p>
+        </div>
+
+        <a id="stripe-checkout-btn" href="mailto:subscribe@nichedomainradar.com?subject=Subscribe%20Pro" class="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded text-center text-xs shadow-lg shadow-emerald-500/20 transition-all">
+          💳 Proceed to Checkout (Stripe / Card)
+        </a>
+      </div>
+
+      <!-- Owner Quick Access Pass -->
+      <div class="border-t border-[#1c291c] pt-4 text-center">
+        <span class="text-[11px] text-slate-500 block mb-2">Are you the Site Owner / Founder?</span>
+        <button id="owner-pass-btn" class="text-xs text-emerald-400 hover:underline font-bold cursor-pointer">
+          🔐 Enable Owner Pass (Instant Full Unmask)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client-side Logic for Owner Mode & Modals -->
+  <script>
+    const btnMasked = document.getElementById('btn-masked');
+    const btnUnlocked = document.getElementById('btn-unlocked');
+    const domainElements = document.querySelectorAll('.domain-name');
+    const actionButtons = document.querySelectorAll('.btn-action');
+    const adminBadge = document.getElementById('admin-badge');
+
+    const modal = document.getElementById('checkout-modal');
+    const closeModal = document.getElementById('close-modal');
+    const openCheckoutBtns = document.querySelectorAll('.open-checkout');
+    const selectedPlanText = document.getElementById('selected-plan');
+    const ownerPassBtn = document.getElementById('owner-pass-btn');
+
+    let isOwnerMode = localStorage.getItem('isOwnerMode') === 'true';
+
+    function updateMode(unlocked: boolean) {
+      if (unlocked) {
+        btnUnlocked?.classList.add('bg-emerald-500', 'text-slate-950');
+        btnUnlocked?.classList.remove('text-slate-400');
+        btnMasked?.classList.remove('bg-emerald-500', 'text-slate-950');
+        btnMasked?.classList.add('text-slate-400');
+        adminBadge?.classList.remove('hidden');
+
+        domainElements.forEach(el => {
+          const full = el.getAttribute('data-full');
+          if (full) el.textContent = full;
+        });
+
+        actionButtons.forEach(btn => {
+          const textEl = btn.querySelector('.action-text');
+          if (textEl) textEl.textContent = 'Full Unlocked 🔓';
+          btn.classList.add('text-emerald-300');
+        });
+      } else {
+        btnMasked?.classList.add('bg-emerald-500', 'text-slate-950');
+        btnMasked?.classList.remove('text-slate-400');
+        btnUnlocked?.classList.remove('bg-emerald-500', 'text-slate-950');
+        btnUnlocked?.classList.add('text-slate-400');
+        adminBadge?.classList.add('hidden');
+
+        domainElements.forEach(el => {
+          const masked = el.getAttribute('data-masked');
+          if (masked) el.textContent = masked;
+        });
+
+        actionButtons.forEach(btn => {
+          const textEl = btn.querySelector('.action-text');
+          if (textEl) textEl.textContent = 'Unlock Name 🔒';
+        });
+      }
+    }
+
+    // Initialize State
+    if (isOwnerMode) {
+      updateMode(true);
+    }
+
+    btnMasked?.addEventListener('click', () => {
+      localStorage.setItem('isOwnerMode', 'false');
+      updateMode(false);
+    });
+
+    btnUnlocked?.addEventListener('click', () => {
+      localStorage.setItem('isOwnerMode', 'true');
+      updateMode(true);
+    });
+
+    // Checkout Modal Logic
+    openCheckoutBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const plan = btn.getAttribute('data-plan') || 'Pro Membership';
+        if (selectedPlanText) selectedPlanText.textContent = plan;
+        modal?.classList.remove('hidden');
+      });
+    });
+
+    actionButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (localStorage.getItem('isOwnerMode') === 'true') {
+          const fullName = btn.getAttribute('data-[#domain-full]') || '';
+          alert(`🔓 Owner Pass Active!\nFull Domain: ${fullName}\nStatus: Verified Clean (DR 38+)`);
+        } else {
+          modal?.classList.remove('hidden');
+        }
+      });
+    });
+
+    closeModal?.addEventListener('click', () => {
+      modal?.classList.add('hidden');
+    });
+
+    ownerPassBtn?.addEventListener('click', () => {
+      localStorage.setItem('isOwnerMode', 'true');
+      updateMode(true);
+      modal?.classList.add('hidden');
+      alert('🔐 Owner Pass Enabled! You now have full unmasked access to all domains.');
+    });
+  </script>
+
+</Layout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://niche-domain-radar.pages.dev/sitemap.xml

@@ -15,151 +15,111 @@ export interface ExpiredDomain {
   droppedAt: string;
 }
 
-export const LAST_UPDATED_AT = "Nov 17, 2026";
+export const LAST_UPDATED_AT = "Nov 18, 2026";
 
 export const DOMAINS: ExpiredDomain[] = [
   {
     "id": 1,
-    "name": "stackscale.app",
-    "maskedName": "s***le.app",
-    "tld": ".app",
+    "name": "stratabench.dev",
+    "maskedName": "s***ch.dev",
+    "tld": ".dev",
     "niche": "DevTools",
-    "domainAgeYears": 8,
-    "drScore": 47,
-    "backlinksCount": 3621,
-    "referringDomains": 124,
+    "domainAgeYears": 6,
+    "drScore": 48,
+    "backlinksCount": 3520,
+    "referringDomains": 54,
     "featuredBacklinks": [
       "Bloomberg",
       "Forbes",
       "ProductHunt"
     ],
-    "dropStatus": "Available",
-    "checkUrl": "https://porkbun.com/checkout/search?q=stackscale.app",
+    "dropStatus": "Pending Delete",
+    "checkUrl": "https://porkbun.com/checkout/search?q=stratabench.dev",
     "isClean": true,
-    "droppedAt": "Nov 17, 2026"
+    "droppedAt": "Nov 18, 2026"
   },
   {
     "id": 2,
-    "name": "gitmetrics.ai",
-    "maskedName": "g***cs.ai",
-    "tld": ".ai",
-    "niche": "AI",
-    "domainAgeYears": 3,
-    "drScore": 47,
-    "backlinksCount": 1116,
-    "referringDomains": 46,
-    "featuredBacklinks": [
-      "ProductHunt",
-      "TechCrunch",
-      "GitHub"
-    ],
-    "dropStatus": "Available",
-    "checkUrl": "https://porkbun.com/checkout/search?q=gitmetrics.ai",
-    "isClean": true,
-    "droppedAt": "Nov 17, 2026"
-  },
-  {
-    "id": 3,
-    "name": "logicnode.app",
-    "maskedName": "l***de.app",
-    "tld": ".app",
-    "niche": "AI",
-    "domainAgeYears": 4,
-    "drScore": 45,
-    "backlinksCount": 1352,
-    "referringDomains": 113,
-    "featuredBacklinks": [
-      "TechCrunch",
-      "ProductHunt",
-      "X/Twitter"
-    ],
-    "dropStatus": "Pending Delete",
-    "checkUrl": "https://porkbun.com/checkout/search?q=logicnode.app",
-    "isClean": true,
-    "droppedAt": "Nov 17, 2026"
-  },
-  {
-    "id": 4,
-    "name": "autometrics.io",
-    "maskedName": "a***cs.io",
+    "name": "apexnode.io",
+    "maskedName": "a***de.io",
     "tld": ".io",
-    "niche": "SaaS",
-    "domainAgeYears": 8,
-    "drScore": 43,
-    "backlinksCount": 2368,
-    "referringDomains": 49,
-    "featuredBacklinks": [
-      "Medium",
-      "Substack",
-      "Forbes"
-    ],
-    "dropStatus": "Available",
-    "checkUrl": "https://porkbun.com/checkout/search?q=autometrics.io",
-    "isClean": true,
-    "droppedAt": "Nov 17, 2026"
-  },
-  {
-    "id": 5,
-    "name": "pulseops.app",
-    "maskedName": "p***ps.app",
-    "tld": ".app",
     "niche": "DevTools",
-    "domainAgeYears": 4,
-    "drScore": 40,
-    "backlinksCount": 2729,
-    "referringDomains": 57,
+    "domainAgeYears": 6,
+    "drScore": 47,
+    "backlinksCount": 1427,
+    "referringDomains": 142,
     "featuredBacklinks": [
       "HackerNews",
       "Vercel",
       "GitHub"
     ],
     "dropStatus": "Pending Delete",
-    "checkUrl": "https://porkbun.com/checkout/search?q=pulseops.app",
+    "checkUrl": "https://porkbun.com/checkout/search?q=apexnode.io",
     "isClean": true,
-    "droppedAt": "Nov 17, 2026"
+    "droppedAt": "Nov 18, 2026"
   },
   {
-    "id": 6,
-    "name": "devops.app",
-    "maskedName": "d***ps.app",
+    "id": 3,
+    "name": "hyperops.app",
+    "maskedName": "h***ps.app",
     "tld": ".app",
-    "niche": "DevTools",
-    "domainAgeYears": 7,
-    "drScore": 37,
-    "backlinksCount": 3732,
-    "referringDomains": 132,
+    "niche": "AI",
+    "domainAgeYears": 4,
+    "drScore": 44,
+    "backlinksCount": 1653,
+    "referringDomains": 84,
     "featuredBacklinks": [
       "TechCrunch",
       "ProductHunt",
       "X/Twitter"
     ],
     "dropStatus": "Pending Delete",
-    "checkUrl": "https://porkbun.com/checkout/search?q=devops.app",
+    "checkUrl": "https://porkbun.com/checkout/search?q=hyperops.app",
     "isClean": true,
-    "droppedAt": "Nov 17, 2026"
+    "droppedAt": "Nov 18, 2026"
   },
   {
-    "id": 7,
-    "name": "hubdesk.co",
-    "maskedName": "h***sk.co",
+    "id": 4,
+    "name": "synthbase.co",
+    "maskedName": "s***se.co",
     "tld": ".co",
-    "niche": "SaaS",
-    "domainAgeYears": 5,
-    "drScore": 37,
-    "backlinksCount": 2798,
-    "referringDomains": 61,
+    "niche": "AI",
+    "domainAgeYears": 4,
+    "drScore": 41,
+    "backlinksCount": 3674,
+    "referringDomains": 56,
     "featuredBacklinks": [
-      "Medium",
-      "Substack",
-      "Forbes"
+      "TechCrunch",
+      "ProductHunt",
+      "X/Twitter"
     ],
     "dropStatus": "Pending Delete",
-    "checkUrl": "https://porkbun.com/checkout/search?q=hubdesk.co",
+    "checkUrl": "https://porkbun.com/checkout/search?q=synthbase.co",
     "isClean": true,
-    "droppedAt": "Nov 17, 2026"
+    "droppedAt": "Nov 18, 2026"
   },
   {
-    "id": 8,
+    "id": 5,
+    "name": "fitops.dev",
+    "maskedName": "f***ps.dev",
+    "tld": ".dev",
+    "niche": "DevTools",
+    "domainAgeYears": 6,
+    "drScore": 41,
+    "backlinksCount": 1685,
+    "referringDomains": 41,
+    "featuredBacklinks": [
+      "TechCrunch",
+      "ProductHunt",
+      "X/Twitter"
+    ],
+    "dropStatus": "Available",
+    "checkUrl": "https://porkbun.com/checkout/search?q=fitops.dev",
+    "isClean": true,
+    "droppedAt": "Nov 18, 2026"
+  },
+  {
+    "id": 6,
     "name": "promptgenie.app",
     "maskedName": "p***ie.app",
     "tld": ".app",
@@ -169,17 +129,17 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 1250,
     "referringDomains": 55,
     "featuredBacklinks": [
-      "TechCrunch",
-      "ProductHunt",
-      "X/Twitter"
+      "Bloomberg",
+      "Forbes",
+      "ProductHunt"
     ],
     "dropStatus": "Pending Delete",
     "checkUrl": "https://porkbun.com/checkout/search?q=promptgenie.app",
     "isClean": true,
-    "droppedAt": "Nov 17, 2026"
+    "droppedAt": "Nov 18, 2026"
   },
   {
-    "id": 9,
+    "id": 7,
     "name": "saasmetric.co",
     "maskedName": "s***ic.co",
     "tld": ".co",
@@ -189,73 +149,113 @@ export const DOMAINS: ExpiredDomain[] = [
     "backlinksCount": 1850,
     "referringDomains": 72,
     "featuredBacklinks": [
-      "TechCrunch",
       "ProductHunt",
-      "X/Twitter"
+      "TechCrunch",
+      "GitHub"
     ],
     "dropStatus": "Available",
     "checkUrl": "https://porkbun.com/checkout/search?q=saasmetric.co",
     "isClean": true,
-    "droppedAt": "Nov 17, 2026"
+    "droppedAt": "Nov 18, 2026"
   },
   {
-    "id": 10,
-    "name": "nexusmetrics.ai",
-    "maskedName": "n***cs.ai",
-    "tld": ".ai",
-    "niche": "AI",
-    "domainAgeYears": 5,
-    "drScore": 35,
-    "backlinksCount": 1628,
-    "referringDomains": 62,
-    "featuredBacklinks": [
-      "ProductHunt",
-      "TechCrunch",
-      "GitHub"
-    ],
-    "dropStatus": "Pending Delete",
-    "checkUrl": "https://porkbun.com/checkout/search?q=nexusmetrics.ai",
-    "isClean": true,
-    "droppedAt": "Nov 17, 2026"
-  },
-  {
-    "id": 11,
-    "name": "medcraft.ai",
-    "maskedName": "m***ft.ai",
-    "tld": ".ai",
-    "niche": "AI",
-    "domainAgeYears": 4,
-    "drScore": 30,
-    "backlinksCount": 3126,
-    "referringDomains": 139,
-    "featuredBacklinks": [
-      "HackerNews",
-      "Vercel",
-      "GitHub"
-    ],
-    "dropStatus": "Pending Delete",
-    "checkUrl": "https://porkbun.com/checkout/search?q=medcraft.ai",
-    "isClean": true,
-    "droppedAt": "Nov 17, 2026"
-  },
-  {
-    "id": 12,
-    "name": "automind.ai",
-    "maskedName": "a***nd.ai",
-    "tld": ".ai",
-    "niche": "AI",
-    "domainAgeYears": 5,
-    "drScore": 28,
-    "backlinksCount": 4451,
-    "referringDomains": 130,
+    "id": 8,
+    "name": "scalebase.co",
+    "maskedName": "s***se.co",
+    "tld": ".co",
+    "niche": "SaaS",
+    "domainAgeYears": 3,
+    "drScore": 32,
+    "backlinksCount": 3096,
+    "referringDomains": 54,
     "featuredBacklinks": [
       "Medium",
       "Substack",
       "Forbes"
     ],
     "dropStatus": "Pending Delete",
-    "checkUrl": "https://porkbun.com/checkout/search?q=automind.ai",
+    "checkUrl": "https://porkbun.com/checkout/search?q=scalebase.co",
     "isClean": true,
-    "droppedAt": "Nov 17, 2026"
+    "droppedAt": "Nov 18, 2026"
+  },
+  {
+    "id": 9,
+    "name": "logiccraft.co",
+    "maskedName": "l***ft.co",
+    "tld": ".co",
+    "niche": "AI",
+    "domainAgeYears": 7,
+    "drScore": 31,
+    "backlinksCount": 3814,
+    "referringDomains": 60,
+    "featuredBacklinks": [
+      "TechCrunch",
+      "ProductHunt",
+      "X/Twitter"
+    ],
+    "dropStatus": "Pending Delete",
+    "checkUrl": "https://porkbun.com/checkout/search?q=logiccraft.co",
+    "isClean": true,
+    "droppedAt": "Nov 18, 2026"
+  },
+  {
+    "id": 10,
+    "name": "stratastack.io",
+    "maskedName": "s***ck.io",
+    "tld": ".io",
+    "niche": "DevTools",
+    "domainAgeYears": 3,
+    "drScore": 30,
+    "backlinksCount": 986,
+    "referringDomains": 131,
+    "featuredBacklinks": [
+      "ProductHunt",
+      "TechCrunch",
+      "GitHub"
+    ],
+    "dropStatus": "Pending Delete",
+    "checkUrl": "https://porkbun.com/checkout/search?q=stratastack.io",
+    "isClean": true,
+    "droppedAt": "Nov 18, 2026"
+  },
+  {
+    "id": 11,
+    "name": "omnilab.ai",
+    "maskedName": "o***ab.ai",
+    "tld": ".ai",
+    "niche": "AI",
+    "domainAgeYears": 5,
+    "drScore": 30,
+    "backlinksCount": 3748,
+    "referringDomains": 149,
+    "featuredBacklinks": [
+      "Bloomberg",
+      "Forbes",
+      "ProductHunt"
+    ],
+    "dropStatus": "Pending Delete",
+    "checkUrl": "https://porkbun.com/checkout/search?q=omnilab.ai",
+    "isClean": true,
+    "droppedAt": "Nov 18, 2026"
+  },
+  {
+    "id": 12,
+    "name": "neurapulse.app",
+    "maskedName": "n***se.app",
+    "tld": ".app",
+    "niche": "AI",
+    "domainAgeYears": 4,
+    "drScore": 29,
+    "backlinksCount": 2315,
+    "referringDomains": 35,
+    "featuredBacklinks": [
+      "HackerNews",
+      "Vercel",
+      "GitHub"
+    ],
+    "dropStatus": "Pending Delete",
+    "checkUrl": "https://porkbun.com/checkout/search?q=neurapulse.app",
+    "isClean": true,
+    "droppedAt": "Nov 18, 2026"
   }
 ];
